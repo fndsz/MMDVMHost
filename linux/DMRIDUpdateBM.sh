@@ -51,7 +51,7 @@
 #                              CONFIGURATION
 #
 # Full path to DMR ID file
-DMRIDFILE=/path/to/DMR/ID/file/DMRIds.dat
+DMRIDFILE=/var/lib/mmdvm/DMRIds.dat
 #
 # How many DMR ID files do you want backed up (0 = do not keep backups)
 DMRFILEBACKUP=1
@@ -95,7 +95,7 @@ fi
 #curl 'http://registry.dstar.su/dmr/DMRIds.php' 2>/dev/null | sed -e 's/[[:space:]]\+/ /g' > ${DMRIDFILE}
 #curl 'http://registry.dstar.su/dmr/DMRIds2.php' 2>/dev/null | sed -e 's/[[:space:]]\+/ /g' > ${DMRIDFILE}
 # Generate new format of DMRIds.dat file 
-curl 'http://registry.dstar.su/dmr/DMRIds2.php' 2>/dev/null > ${DMRIDFILE}
+curl 'https://ham-digital.org/status/dmrid.dat' 2>/dev/null > ${DMRIDFILE}
 
 # Restart MMDVMHost
 eval ${RESTARTCOMMAND}
